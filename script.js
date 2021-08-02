@@ -26,6 +26,7 @@ class Calculator {
         if(this.previousOperand !== '') {
             this.compute();
         }
+        this.reset = true;
         this.operation = operation;
         this.previousOperand = this.currentOperand;
         this.currentOperand = '';
@@ -100,7 +101,7 @@ const calculator = new Calculator(previousOperandElement, currentOperandElement)
 
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
-        if(calculator.previousOperand === '' && calculator.currentOperand !== '') {
+        if(calculator.previousOperand === '' && calculator.currentOperand !== '' && calculator.reset) {
             calculator.currentOperand = '';
             calculator.reset = false;
         }
